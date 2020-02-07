@@ -1,5 +1,9 @@
 const http = require('http');
 const fs = require('fs');
+//debug
+const debug = require('debug');
+
+const log = debug('*');
 
 //Base server
 const server = http.createServer((req, res) => {
@@ -10,7 +14,7 @@ const server = http.createServer((req, res) => {
     //     res.end();
     // }, 2000)
 
-    console.log('url: ', req.url);
+   log('url: ', req.url);
 
 
     //Дополнительно разобраться с роутингом 
@@ -20,14 +24,14 @@ const server = http.createServer((req, res) => {
         
         //обработка ошибок
         if (err) { 
-            console.log('Error: ' + err);
+            log('Error: ' + err);
             res.write('404');
             res.writeHead(404);
             res.end();
             return;
           }
 
-        console.log('it is callback', body);
+        log('it is callback', req.url);
         res.write(body);
         res.end();
     });
