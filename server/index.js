@@ -30,13 +30,10 @@ const server = http.createServer((req, res) => {
             res.end();
             return;
           }
-
-        log('it is callback', req.url);
+        log('it is callback');
         res.write(body);
         res.end();
     });
-
-    console.log('theres no block ');
 
 })
 server.listen(3000);
